@@ -5,7 +5,7 @@
 
 *New libraries/tools used:  Material UI, Mongoose, React Select, React Awesome Button, React octicons
 
-NB- Optional Task Completed
+NB
 1.Implemented React awesome button and React select
 2.Implemented visibility option for a user to hide his post
 3.Implemented axios interceptor
