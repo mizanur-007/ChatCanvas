@@ -3,7 +3,9 @@
 # Live Link: https://chatcanvas-460ce.web.app/
 
 
-*New libraries/tools used:  Material UI, Mongoose, React Select, React Awesome Button, React octicons
+*libraries/tools used:  Material UI, React Select, React Awesome Button, React octicons, ReactJS, Firebase,StripeJS, Tanstack Query, Axios, Date fns, lottie react, React 
+                        Hook Form , React Share, SwiperJS, React Toastify, Sweet Alert
+                        Server: Mongoose, ExpressJS, NodeJs, dotenv, MongoDB, Cookie-Parser, Json Web Token
 
 NB
 1.Implemented React awesome button and React select
