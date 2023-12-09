@@ -17,7 +17,7 @@ NB
 
 Features & Functionalities
 
-•Notification Icon : When a announcement will be created by admin , the number of announcement will show on the icon
+•Notification Icon : When a announcement will be created by admin , the number of announcement will show on the icon.
 
 •Dropdown menu: Clicking on user avatar a menu will appear
 
