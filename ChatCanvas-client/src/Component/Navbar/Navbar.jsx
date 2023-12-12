@@ -197,7 +197,7 @@ const Navbar = () => {
             </Box>
   
             <Box sx={{ flexGrow: 0 }}>
-              <Tooltip onClick={handleOpen} title="Open settings" style={{cursor:'pointer'}}>
+              <Tooltip onClick={handleOpen} title="Open list" style={{cursor:'pointer'}}>
               <Badge sx={{mr:2}} badgeContent={count} color="success">
   <NotificationsNoneIcon color="action" />
 </Badge>
