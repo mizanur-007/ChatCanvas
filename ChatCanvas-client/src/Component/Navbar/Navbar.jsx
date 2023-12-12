@@ -21,15 +21,32 @@ import { AwesomeButton } from 'react-awesome-button';
 import { DashIcon, SignOutIcon } from '@primer/octicons-react';
 import { Dashboard, DashboardOutlined } from '@mui/icons-material';
 import { toast } from 'react-toastify';
+import Modal from '@mui/material/Modal';
+
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
 
 
 
 const Navbar = () => {
     const {user,loading,logOut} = useAuth();
     const{count} = useAnnouncements()
+    const {result:announcements=[],isLoading} = useAnnouncements()
 
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
   
     const handleOpenNavMenu = (event) => {
       setAnchorElNav(event.currentTarget);
@@ -65,7 +82,7 @@ const Navbar = () => {
       setAnchorElUser(null);
     }
 
-    if(loading){
+    if(loading || isLoading){
       return <Loader></Loader>
     }
 
@@ -180,7 +197,7 @@ const Navbar = () => {
             </Box>
   
             <Box sx={{ flexGrow: 0 }}>
-              <Tooltip title="Open settings">
+              <Tooltip onClick={handleOpen} title="Open settings" style={{cursor:'pointer'}}>
               <Badge sx={{mr:2}} badgeContent={count} color="success">
   <NotificationsNoneIcon color="action" />
 </Badge>
@@ -198,6 +215,25 @@ const Navbar = () => {
 
 
               </Tooltip>
+              <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <Typography id="modal-modal-title" variant="h6" sx={{fontWeight:'bold'}} component="h2">
+            Announcements
+          </Typography>
+          {
+            announcements.map((announce,index)=> <Box sx={{display:'flex' , gap:2, mt:2}} key={announce._id}>
+<Typography sx={{fontWeight:'bold'}}>{index+1}.</Typography>
+<Typography>{announce.title}</Typography>
+            </Box>)
+          }
+         
+        </Box>
+      </Modal>
               
               <Menu
                 sx={{ mt: '45px',textAlign:'center' }}
